@@ -162,23 +162,21 @@ $('.open-letter').on('click', function(e){
 function initializeForSequence2() {
 
     playNextNarrator();
+    $('.next-sequence').hide();
 
-    $('.first-page').hide();
-    
     setTimeout(function () {
-    $('.second-page').show();
-        
-        $('.second-page').css('background-image', 'url("images/BACKGROUND BIRDS.JPG")');
-
+    $('.first-page').hide();           
 
         setTimeout(function () {
-
+            $('.second-page').show();
+            $('.second-page').css('background-image', 'url("images/BACKGROUND BIRDS.JPG")');
             playNextNarrator();
 
             setTimeout(function () {
-                birdPlayer.pause();
+                
                 playNextNarrator();
                 setTimeout(function () {
+                    birdPlayer.pause();
                     $('.second-page').css('background-image', 'url("images/BACKGROUND BIRDS b&w.jpg")');
                     birdPlayer.src = "sounds/ghostown fx.wav";
                     birdPlayer.load();
@@ -187,8 +185,8 @@ function initializeForSequence2() {
 
                     setTimeout(function(){
                         $('#letter-confirm').modal();
-                    }, 19000)
-                },5000);
+                    }, 16000)
+                },4000);
             },4000);
         },1000);
 
