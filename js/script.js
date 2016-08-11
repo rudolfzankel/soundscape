@@ -107,8 +107,8 @@ function initializeForSequence1() {
 $('#preliminary-survey input.submitSurvey').on('click', function (e) {
     e.preventDefault();
     $('#preliminary-survey').hide();
-    //initializeForSequence1();
-    initializeForSequence2();
+    initializeForSequence1();
+    // initializeForSequence2();
 });
 
 
