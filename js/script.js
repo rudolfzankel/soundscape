@@ -105,8 +105,8 @@ function initializeForSequence1() {
 $('#preliminary-survey input.submitSurvey').on('click', function (e) {
     e.preventDefault();
     $('#preliminary-survey').hide();
-    // initializeForSequence1();
-    initializeForSequence2();
+    initializeForSequence1();
+    // initializeForSequence2();
 });
 
 
@@ -172,10 +172,11 @@ function initializeForSequence2() {
 
 
         setTimeout(function () {
-            birdPlayer.pause();
+
             playNextNarrator();
 
             setTimeout(function () {
+                birdPlayer.pause();
                 playNextNarrator();
                 setTimeout(function () {
                     $('.second-page').css('background-image', 'url("images/BACKGROUND BIRDS b&w.jpg")');
