@@ -75,13 +75,12 @@ function initializeForSequence1() {
         }, 15000);
 
         setTimeout(function () {
-            birdPlayer.volume = 0.5;
+            birdPlayer.volume = 0.4;
             narratorPlayer.pause();
             //birdPlayer.play();
         }, 19000);
 
         setTimeout(function () {
-            birdPlayer.pause();
             //narratorPlayer.play();
 
             $("#narrator-soundPlayer").attr("src", 'sounds/narration%202.wav');
@@ -91,8 +90,7 @@ function initializeForSequence1() {
             setTimeout(function () {
                 narratorPlayer.pause();
             }, 3000);
-            birdPlayer.pause();
-            birdPlayer.currentTime = 0;
+
         }, 60000);
 
     }, 24000);
@@ -107,8 +105,8 @@ function initializeForSequence1() {
 $('#preliminary-survey input.submitSurvey').on('click', function (e) {
     e.preventDefault();
     $('#preliminary-survey').hide();
-    initializeForSequence1();
-    // initializeForSequence2();
+    // initializeForSequence1();
+    initializeForSequence2();
 });
 
 
@@ -174,13 +172,13 @@ function initializeForSequence2() {
 
 
         setTimeout(function () {
+            birdPlayer.pause();
             playNextNarrator();
 
             setTimeout(function () {
                 playNextNarrator();
                 setTimeout(function () {
                     $('.second-page').css('background-image', 'url("images/BACKGROUND BIRDS b&w.jpg")');
-                    $('.second-page').css('background-color', '#8C8C8C');
                     birdPlayer.src = "sounds/ghostown fx.wav";
                     birdPlayer.load();
                     birdPlayer.loop = true;
