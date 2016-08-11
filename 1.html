@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link media="all" rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+<div>
+    <audio src="sounds/narration%201.wav" id="narrator-soundPlayer" preload="auto"></audio>
+    <audio src="sounds/allbirds%20final.mp3" id="bird-soundPlayer" preload="auto"></audio>
+    <audio src="sounds/userInput.wav" id="effect-soundPlayer" preload="auto"></audio>
+</div>
+<div class="container first-page">
+    <div class="rule-box">
+        <p>Who or what is making these sounds? <br/> Type-in your answer in the answer box and press Enter on your keyboard to hand it in.</p>
+    </div>
+
+    <div class="input-container" id="value-input-container">
+        <h3>Answer Box</h3>
+        <input type="text" name="value-input" id="value-input" />
+    </div>
+
+    <div class="input-container">
+        <a class="next-sequence" href="/"><img src="images/next_button.png" id="next-btn"/> </a>
+        <!--<a href="http://jabalmoussa.org/"><input type="button" value="Next" id="next-btn"></a>-->
+    </div>
+
+    <div id="survey"></div>
+</div>
+
+<div class="container second-page">
+
+
+
+    <div class="modal fade" id="letter-confirm">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p class="letter-confirm-content">You have received a letter, would you like to open it?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary open-letter">Yes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+    <div class="letter-container">
+        <img src="images/letter1.png" />
+    </div>
+
+    <div class="modal fade" id="help-confirm">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p class="letter-confirm-content">Are you ready to help?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary next-sequence1">OK</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</div>
+
+
+
+<div id="preliminary-survey">
+    <form class="form-horizontal">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>Preliminary Survey</legend>
+
+            <!-- Multiple Radios -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="age">Age</label>
+                <div class="col-md-4">
+                    <div class="radio">
+                        <label for="age-0">
+                            <input type="radio" name="age" id="age-0" value="0" checked="checked">
+                            less than 7
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label for="age-1">
+                            <input type="radio" name="age" id="age-1" value="1">
+                            7 to 10
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label for="age-2">
+                            <input type="radio" name="age" id="age-2" value="2">
+                            12 to 14
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label for="age-3">
+                            <input type="radio" name="age" id="age-3" value="3">
+                            14 to 16
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label for="age-4">
+                            <input type="radio" name="age" id="age-4" value="4">
+                            16 and up
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Select Basic -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="gender">Gender</label>
+                <div class="col-md-4">
+                    <select id="gender" name="gender" class="form-control">
+                        <option value="0">Male</option>
+                        <option value="1">Female</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="email">Email</label>
+                <div class="col-md-4">
+                    <input id="email" name="email" type="text" placeholder="Email" class="form-control input-md">
+
+                </div>
+            </div>
+
+            <!-- Multiple Radios (inline) -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="question1">Have you played or do you still play a musical instrument?</label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="question1-0">
+                        <input type="radio" name="question1" id="question1-0" value="1" checked="checked">
+                        Yes
+                    </label>
+                    <label class="radio-inline" for="question1-1">
+                        <input type="radio" name="question1" id="question1-1" value="0">
+                        No
+                    </label>
+                </div>
+            </div>
+
+            <!-- Multiple Radios (inline) -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="question2">If yes, how many years have you been playing or have played in the past?</label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="question2-0">
+                        <input type="radio" name="question2" id="question2-0" value="2" checked="checked">
+                        2
+                    </label>
+                    <label class="radio-inline" for="question2-1">
+                        <input type="radio" name="question2" id="question2-1" value="3">
+                        3
+                    </label>
+                    <label class="radio-inline" for="question2-2">
+                        <input type="radio" name="question2" id="question2-2" value="4">
+                        4
+                    </label>
+                    <label class="radio-inline" for="question2-3">
+                        <input type="radio" name="question2" id="question2-3" value="more">
+                        more
+                    </label>
+                </div>
+            </div>
+
+            <!-- Multiple Radios (inline) -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="question3">Do you have a music theory background?</label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="question3-0">
+                        <input type="radio" name="question3" id="question3-0" value="1" checked="checked">
+                        Yes
+                    </label>
+                    <label class="radio-inline" for="question3-1">
+                        <input type="radio" name="question3" id="question3-1" value="0">
+                        No
+                    </label>
+                </div>
+            </div>
+
+            <!-- Multiple Radios (inline) -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="question4">If yes, how many years of music theory?</label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="question4-0">
+                        <input type="radio" name="question4" id="question4-0" value="1" checked="checked">
+                        1
+                    </label>
+                    <label class="radio-inline" for="question4-1">
+                        <input type="radio" name="question4" id="question4-1" value="2">
+                        2
+                    </label>
+                    <label class="radio-inline" for="question4-2">
+                        <input type="radio" name="question4" id="question4-2" value="3">
+                        3
+                    </label>
+                    <label class="radio-inline" for="question4-3">
+                        <input type="radio" name="question4" id="question4-3" value="4">
+                        4
+                    </label>
+                    <label class="radio-inline" for="question4-4">
+                        <input type="radio" name="question4" id="question4-4" value="more">
+                        more
+                    </label>
+                </div>
+            </div>
+
+            <!-- Multiple Radios (inline) -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="question5">Do you have bird watching experience?</label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="question5-0">
+                        <input type="radio" name="question5" id="question5-0" value="1" checked="checked">
+                        Yes
+                    </label>
+                    <label class="radio-inline" for="question5-1">
+                        <input type="radio" name="question5" id="question5-1" value="0">
+                        No
+                    </label>
+                </div>
+            </div>
+
+            <!-- Multiple Radios (inline) -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="question6">If so, how many years of bird watching experience do you have?</label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="question6-0">
+                        <input type="radio" name="question6" id="question6-0" value="1" checked="checked">
+                        1
+                    </label>
+                    <label class="radio-inline" for="question6-1">
+                        <input type="radio" name="question6" id="question6-1" value="2">
+                        2
+                    </label>
+                    <label class="radio-inline" for="question6-2">
+                        <input type="radio" name="question6" id="question6-2" value="3">
+                        3
+                    </label>
+                    <label class="radio-inline" for="question6-3">
+                        <input type="radio" name="question6" id="question6-3" value="4">
+                        4
+                    </label>
+                    <label class="radio-inline" for="question6-4">
+                        <input type="radio" name="question6" id="question6-4" value="more">
+                        more
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary submitSurvey" value="Submit" />
+            </div>
+
+        </fieldset>
+    </form>
+
+</div>
+
+
+
+</body>
+
+<script src="js/jquery-3.0.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/handlebars.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jQuery.Survey.js"></script>
+<script type="text/javascript" src="js/jquery.survey.bootstrap.min.js"></script>
+<script src="js/script.js"></script>
+
+</html>

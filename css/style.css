@@ -1,0 +1,380 @@
+@font-face {
+    font-family: 'IM FELL DW Pica PRO';
+    src: url(../fonts/IMFeENrm29C.otf);
+}
+
+@font-face {
+    font-family: 'Comic Book';
+    src: url(../fonts/Comic%20Book%20Bold%20Italic.otf);
+}
+
+@font-face {
+    font-family: 'BluuNext';
+    src: url(../fonts/BluuNext-Bold.otf);
+}
+
+html{
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+.container{
+    width: 100%;
+    height: 100%;
+}
+.homepage-background{
+    background: #FBCCBA;
+}
+.first-page{
+    background: #FBCCBA;
+}
+.second-page{
+    background: #FBCCBA;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: none;
+
+}
+.main-content{
+    width: 60%;
+    margin: 0 auto;
+    min-width: 700px;
+    position: relative;
+    text-align: center;
+}
+.full-width{
+    width: 100%;
+}
+.top-title{
+    width: 60%;
+    margin-top: 100px;
+    max-width: 420px;
+}
+.main-content .title-center{
+    text-align: center;
+}
+
+
+
+.top-title-1{
+    color: #fb5f42;
+    font-size: 1.5em;
+    font-weight: lighter;
+    letter-spacing: 3px;
+}
+.bottom-description{
+    color: #FFFFFF;
+    font-family: "IM FELL DW Pica PRO";
+    font-size: 14px;
+    letter-spacing: 1.5px;
+}
+.bottom-logo{
+    opacity: 0.5;
+    width: 80px;
+}
+.homepage-graphic{
+    width: 50%;
+    max-width: 410px;
+    margin: 0 auto;
+    position: relative;
+}
+.homepage-graphic-img{
+    width: 100%;
+    margin-left: -10%;
+}
+
+.start-btn{
+    position: absolute;
+    width: 100px;
+    margin: 0 auto;
+    left: 39%;
+    top: 86%;
+}
+
+.start-btn img{
+    width: 100px;
+}
+#value-input-container{
+    width: 160px;
+    position: absolute;
+    top: 42%;
+    left: calc(50% - 80px);
+    outline: none;
+    font-size: 18px;
+    text-align: center;
+}
+#value-input-container h3{
+    font-family: 'Comic Book';
+    font-weight: lighter;
+    font-size: 20px;
+}
+.input-container input#value-input[type=text]{
+    padding: 10px 15px;
+    box-sizing: border-box;
+    border: 2px solid #FBCCBA;
+    border-radius: 15px;
+    width: 160px;
+    margin: 0 auto;
+    text-align: center;
+    outline: none;
+    font-size: 18px;
+    font-family: "BluuNext";
+}
+#next-btn{
+    width: 120px;
+    height: 32px;
+    position: absolute;
+    top: 54.5%;
+    left: calc(50% - 60px);
+    display: none;
+}
+.input-container input#next-btn[type=button]{
+    background-color: #fa6043;
+    border: none;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    width: 100px;
+    height: 28px;
+
+    position: absolute;
+    top: 55%;
+    left: calc(50% - 50px);
+    outline: none;
+    font-size: 18px;
+    font-family: "BluuNext";
+    display: none;
+}
+
+.rule-box{
+    background-image: url("../images/rule-box-small.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 200px;
+    height: 238px;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    padding: 50px 10px 50px 20px;
+    display: none;
+}
+.rule-box p{
+    font-family: 'IM FELL DW Pica PRO';
+    font-size: 15px;
+}
+
+#letter-confirm{
+    font-family: "IM FELL DW Pica PRO";
+}
+
+.letter-confirm-content{
+    font-family: "IM FELL DW Pica PRO";
+    font-size: 19px;
+    letter-spacing: 1.5px;
+}
+
+#letter-confirm .modal-body{
+    padding: 20px;
+}
+
+#letter-confirm .modal-footer{
+    padding: 8px;
+}
+
+.letter-container{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -282px;
+    width: 565px;
+    height: 601px;
+}
+
+
+
+
+
+
+
+
+
+
+
+#audioVolumeContainer {
+    width: 350px;
+    height: 50px;
+    position: relative;
+    margin: 0 auto;
+    top: 20px;
+    background: url('http://iviewsource.com/exercises/audioslider/images/volume-background.png') no-repeat left top;
+}
+
+#volume {
+    position: absolute;
+    left: 24px;
+    margin: 0 auto;
+    height:15px;
+    width: 300px;
+    background: url('http://iviewsource.com/exercises/audioslider/images/volume-empty.png') no-repeat left top;
+    border: none;
+    outline: none;
+}
+
+#volume .ui-slider-range-min {
+    height:15px;
+    width: 300px;
+    position: absolute;
+    background: url('http://iviewsource.com/exercises/audioslider/images/volume-full.png') no-repeat left top;
+    border: none;
+    outline: none;
+}
+
+#volume .ui-slider-handle {
+    width: 38px;
+    height:39px;
+    background: url('http://iviewsource.com/exercises/audioslider/images/volume-knob.png') no-repeat left top;
+    position: absolute;
+    margin-left: -15px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    margin-top: -6px;
+}
+
+#survey{
+    position: absolute;
+    bottom: 0;
+}
+
+
+#preliminary-survey{
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    top: 50px;
+    left: calc(50% - 400px);
+    padding: 15px;
+    background-color: #FFFFFF;
+    margin: 0 auto;
+    z-index: 999999;
+
+
+}
+
+#preliminary-survey .submitSurvey{
+    float: right;
+    margin-right: 100px;
+}
+
+.next-sequence:hover{
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+div#board {
+    position: relative;
+    width: 1024px;
+    height: 863px;
+    margin: auto;
+    background: url('../images/environment3.jpg') no-repeat;
+    background-size: 1024px 863px;
+}
+div#messageArea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: rgb(53, 140, 30);
+    font-family: "times new roman";
+    font-style: italic;
+    font-weight: 700;
+}
+
+table {
+    position: absolute;
+    left: 115px;
+    top: 50px;
+    border-spacing: 0px;
+    color: white;
+    height: 1000px;
+}
+td {
+    width: 120px;
+    height: 1000px;}
+.branch1 {
+    background: url('../images/goldfinchhomepage_trans.png')no-repeat;
+    text-align: left;
+    background-size: 80px 120px;
+}
+.branch2 {
+    background: url("../bird2.png")no-repeat center center;
+}
+.branch3 {
+    background: url("../bird3.png")no-repeat center center;
+}
+.flight {
+    background: url("../short-toed.png") no-repeat center center;
+}
+.floor1 {
+    background: url("../hoopoe.png")no-repeat center center;
+}
+tr {
+    height: 95px;}
+
+form.guessForm {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    padding: 15px;
+    background-color: rgb(53, 123, 34);
+}
+form.guessForm input {
+    background-color: rgb(152, 207, 113);
+    border-color: rgb(83, 175, 19);
+    font-size: 1em;
+}
+.audiojs{
+    display: none;
+}
+
+#tryGuess {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 10px 15px;
+
+}
+
+
+
+
+
+
+
+
+
+
