@@ -35,6 +35,7 @@ body{
     height: 100%;
     padding: 0;
     margin: 0;
+    position: relative;
 }
 .homepage-background{
     background: #FBCCBA;
@@ -49,7 +50,23 @@ body{
     background-repeat: no-repeat;
     background-position: center center;
     display: none;
+    position: relative;
 }
+
+.second-page .background{
+    background-repeat: no-repeat;
+    background-image: url("../images/BACKGROUND BIRDS.JPG");
+    background-size: contain;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.invisible-img{
+    visibility: hidden;
+    height: 100%;
+}
+
 .main-content{
     width: 60%;
     margin: 0 auto;
@@ -59,6 +76,7 @@ body{
 }
 .full-width{
     width: 100%;
+    text-align: center;
 }
 .top-title{
     width: 60%;
@@ -208,11 +226,84 @@ body{
     height: 601px;
 }
 
+.second-page-content{
+    position: relative;
+}
 
+.bubbles{
+    width: 70px;
+    height: 40px;
+    position: absolute;
+}
 
-
-
-
+.bubble1{
+    right: 39%;
+    top: 15%;
+}
+.bubble2{
+    right: 31%;
+    top: 36%;
+}
+.bubble3{
+    right: 30%;
+    top: 7%;
+}
+.bubble4{
+    right: 2%;
+    top: 10%;
+}
+.bubble5{
+    right: 35%;
+    top: 44%;
+}
+.bubble6{
+    right: 13%;
+    top: 57%;
+}
+.bubble7{
+    right: 23%;
+    top: 48%;
+}
+.bubble8{
+    right: 8%;
+    top: 35%;
+}
+.birds-front{
+    width: 120px;
+    position: absolute;
+}
+.bird1{
+    left: 5%;
+    top: 30%;
+}
+.bird2{
+    left: 15%;
+    top: 30%;
+}
+.bird3{
+    left: 25%;
+    top: 30%;
+}
+.bird4{
+    left: 35%;
+    top: 30%;
+}
+.bird5{
+    left: 5%;
+    top: 55%;
+}
+.bird6{
+    left: 15%;
+    top: 55%;
+}
+.bird7{
+    left: 25%;
+    top: 55%;
+}
+.bird8{
+    left: 35%;
+    top: 55%;
+}
 
 
 
@@ -275,8 +366,6 @@ body{
     background-color: #FFFFFF;
     margin: 0 auto;
     z-index: 999999;
-
-
 }
 
 #preliminary-survey .submitSurvey{
