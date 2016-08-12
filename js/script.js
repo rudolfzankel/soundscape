@@ -168,7 +168,7 @@ function initializeForSequence2() {
     },2000);
     setTimeout(function () {   
         $('.second-page').show();
-        $('.second-page').css('background-image', 'url("images/BACKGROUND BIRDS.JPG")');
+        //$('.second-page-content').css('background-image', 'url("images/BACKGROUND BIRDS.JPG")');
         setTimeout(function () {
             
             playNextNarrator();
