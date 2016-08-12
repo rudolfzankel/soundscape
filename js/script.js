@@ -91,7 +91,7 @@ function initializeForSequence1() {
                 narratorPlayer.pause();
             }, 3000);
 
-        }, 60000);
+        }, 50000);
 
     }, 24000);
 
@@ -105,8 +105,8 @@ function initializeForSequence1() {
 $('#preliminary-survey input.submitSurvey').on('click', function (e) {
     e.preventDefault();
     $('#preliminary-survey').hide();
-    initializeForSequence1();
-    // initializeForSequence2();
+     initializeForSequence1();
+    //initializeForSequence2();
 });
 
 
@@ -163,13 +163,14 @@ function initializeForSequence2() {
 
     playNextNarrator();
     $('.next-sequence').hide();
-
-    setTimeout(function () {
-    $('.first-page').hide();           
-
+    setTimeout(function(){
+        $('.first-page').hide();
+    },2000);
+    setTimeout(function () {   
+        $('.second-page').show();
+        $('.second-page').css('background-image', 'url("images/BACKGROUND BIRDS.JPG")');
         setTimeout(function () {
-            $('.second-page').show();
-            $('.second-page').css('background-image', 'url("images/BACKGROUND BIRDS.JPG")');
+            
             playNextNarrator();
 
             setTimeout(function () {
@@ -177,7 +178,8 @@ function initializeForSequence2() {
                 playNextNarrator();
                 setTimeout(function () {
                     birdPlayer.pause();
-                    $('.second-page').css('background-image', 'url("images/BACKGROUND BIRDS b&w.jpg")');
+                    $('.second-page-content').css('background-image', 'url("images/BACKGROUND BIRDS b&w.jpg")');
+                    $('.birds-bubbles-container').hide();
                     birdPlayer.src = "sounds/ghostown fx.wav";
                     birdPlayer.load();
                     birdPlayer.loop = true;
