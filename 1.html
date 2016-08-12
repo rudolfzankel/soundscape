@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Intro</title>
+    <title>Homepage</title>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -16,6 +16,7 @@
     <audio src="sounds/allbirds%20final.mp3" id="bird-soundPlayer" preload="auto"></audio>
     <audio src="sounds/userInput.wav" id="effect-soundPlayer" preload="auto"></audio>
 </div>
+
 <div class="container first-page">
     <div class="rule-box">
         <p>Who or what is making these sounds? <br/> Type-in your answer in the answer box and press Enter on your keyboard to hand it in.</p>
@@ -25,6 +26,48 @@
         <h3>Answer Box</h3>
         <input type="text" name="value-input" id="value-input" />
     </div>
+
+
+
+    <div class="cards-container">
+
+
+        <div class="card bird1">
+            <div class="front"><img src="images/card_blackbird-01.png"/></div>
+            <div class="back"><img src="images/card_blackbird_2-01.png"/></div>
+        </div>
+
+        <div class="card bird2">
+            <div class="front"><img src="images/card_wren-01.png" /></div>
+            <div class="back"><img src="images/card_wren_2-01.png" /></div>
+        </div>
+
+        <div class="card bird3">
+            <div class="front"><img src="images/card_hoopoe-01.png" /></div>
+            <div class="back"><img src="images/card_hoopoe_2-01.png" /></div>
+        </div>
+
+        <div class="card bird4">
+            <div class="front"><img src="images/card_jay-01.png" /></div>
+            <div class="back"><img src="images/card_jay_2-01.png" /></div>
+        </div>
+
+        <!--        <img src="images/note1.png" class="bubbles bubble1" />
+                <img src="images/note2.png" class="bubbles bubble2" />
+                <img src="images/note3.png" class="bubbles bubble3" />
+                <img src="images/note4.png" class="bubbles bubble4" />
+                <img src="images/note5.png" class="bubbles bubble5" />
+                <img src="images/note6.png" class="bubbles bubble6" />
+                <img src="images/note7.png" class="bubbles bubble7" />
+                <img src="images/note8.png" class="bubbles bubble8" />-->
+
+        <!--        <img src="images/card_cuckoo-01.png" class="birds-front bird5" />
+                <img src="images/card_greenfinch-01.png" class="birds-front bird6" />
+                <img src="images/card_tawny-owl-01.png" class="birds-front bird7" />
+                <img src="images/card_chukar-partridge-01.png" class="birds-front bird8" />-->
+    </div>
+
+
 
     <div class="input-container">
         <a class="next-sequence" href="/"><img src="images/next_button.png" id="next-btn"/> </a>
@@ -38,26 +81,7 @@
 <div class="container second-page">
 
     <div class="background second-page-content">
-        <div class="birds-bubbles-container">
         <img src="images/BACKGROUND BIRDS b&w.jpg" class="invisible-img" />
-        <img src="images/note1.png" class="bubbles bubble1" />
-        <img src="images/note2.png" class="bubbles bubble2" />
-        <img src="images/note3.png" class="bubbles bubble3" />
-        <img src="images/note4.png" class="bubbles bubble4" />
-        <img src="images/note5.png" class="bubbles bubble5" />
-        <img src="images/note6.png" class="bubbles bubble6" />
-        <img src="images/note7.png" class="bubbles bubble7" />
-        <img src="images/note8.png" class="bubbles bubble8" />
-
-        <img src="images/card_blackbird-01.png" class="birds-front bird1" />
-        <img src="images/card_chukar-partridge-01.png" class="birds-front bird2" />
-        <img src="images/card_cuckoo-01.png" class="birds-front bird3" />
-        <img src="images/card_greenfinch-01.png" class="birds-front bird4" />
-        <img src="images/card_hoopoe-01.png" class="birds-front bird5" />
-        <img src="images/card_jay-01.png" class="birds-front bird6" />
-        <img src="images/card_tawny-owl-01.png" class="birds-front bird7" />
-        <img src="images/card_wren-01.png" class="birds-front bird8" />
-        </div>
     </div>
 
     <div class="modal fade" id="letter-confirm">
@@ -83,10 +107,10 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-                    <p class="letter-confirm-content">Are you ready to help the birds get their voices back?</p>
+                    <p class="letter-confirm-content">Are you ready to help?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary next-sequence1">OK</button>
+                    <button type="button" class="btn btn-primary next-sequence3">OK</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -94,14 +118,12 @@
 
 </div>
 
-
-
 <div id="preliminary-survey">
     <form class="form-horizontal">
         <fieldset>
 
             <!-- Form Name -->
-            <legend>Tell us a bit about yourself</legend>
+            <legend>Preliminary Survey</legend>
 
             <!-- Multiple Radios -->
             <div class="form-group">
@@ -301,6 +323,7 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jQuery.Survey.js"></script>
 <script type="text/javascript" src="js/jquery.survey.bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.flip.min.js"></script>
 <script src="js/script.js"></script>
 
 </html>

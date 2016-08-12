@@ -56,6 +56,10 @@ var surveyVar = {	title: 'Survey',
 var narratorPlayer = document.getElementById("narrator-soundPlayer"), birdPlayer = document.getElementById("bird-soundPlayer"), effectPlayer = document.getElementById("effect-soundPlayer");
 var narratorPlayList=["Narrator Sound 3.wav", "Narrator Sound 4.wav", "Narration Sound 5.wav", "Letter 1 narration.wav"], curPlaying = 0;
 
+
+
+
+
 function initializeForSequence1() {
     var $survey = $('#survey');
 
@@ -105,9 +109,15 @@ function initializeForSequence1() {
 $('#preliminary-survey input.submitSurvey').on('click', function (e) {
     e.preventDefault();
     $('#preliminary-survey').hide();
+
      initializeForSequence1();
-    //initializeForSequence2();
 });
+
+/*
+$('.card').on('click', function (e) {
+    e.preventDefault();
+    $(this).toggleClass('flipped');
+});*/
 
 
 
@@ -158,6 +168,24 @@ $('.open-letter').on('click', function(e){
 
 });
 
+$('.next-sequence3').on('click', function(e){
+    e.preventDefault();
+    $('#help-confirm').modal('hide');
+
+    $('.card').flip();
+
+    $('.rule-box').hide();
+    $('#survey').hide();
+
+    $('.second-page').hide();
+    
+    $('.first-page').show();
+
+    $('.cards-container').show();
+
+    initializeForSequence3();
+});
+
 
 function initializeForSequence2() {
 
@@ -165,21 +193,21 @@ function initializeForSequence2() {
     $('.next-sequence').hide();
     setTimeout(function(){
         $('.first-page').hide();
-    },2000);
-    setTimeout(function () {   
         $('.second-page').show();
+    },2000);
+    setTimeout(function () {
         //$('.second-page-content').css('background-image', 'url("images/BACKGROUND BIRDS.JPG")');
         setTimeout(function () {
             
             playNextNarrator();
 
             setTimeout(function () {
-                
+
                 playNextNarrator();
                 setTimeout(function () {
                     birdPlayer.pause();
                     $('.second-page-content').css('background-image', 'url("images/BACKGROUND BIRDS b&w.jpg")');
-                    $('.birds-bubbles-container').hide();
+
                     birdPlayer.src = "sounds/ghostown fx.wav";
                     birdPlayer.load();
                     birdPlayer.loop = true;
@@ -193,5 +221,12 @@ function initializeForSequence2() {
         },1000);
 
     }, 3000);
+
+}
+
+
+
+function initializeForSequence3() {
+
 
 }
