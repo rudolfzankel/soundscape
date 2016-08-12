@@ -322,6 +322,7 @@ function initializeForSequence3() {
                             birdPlayer.pause();
                             playNarrator('Narrator Sound 8.wav');
                             setTimeout(function(){
+                                $('#try-confirm-message').modal();
                                 setTimeout(function(){
                                     $('#try-confirm-message').modal('hide');
                                 },3000);
