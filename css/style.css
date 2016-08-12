@@ -136,7 +136,7 @@ body{
 #value-input-container{
     width: 160px;
     position: absolute;
-    top: 42%;
+    top: 60%;
     left: calc(50% - 80px);
     outline: none;
     font-size: 18px;
@@ -317,7 +317,7 @@ body{
 }
 .cards-container{
     width: 100%;
-    height: 42%;
+    height: 50%;
     top: 0;
     position: relative;
     display: none;

@@ -55,7 +55,7 @@ var surveyVar = {	title: 'Survey',
 
 var narratorPlayer = document.getElementById("narrator-soundPlayer"), birdPlayer = document.getElementById("bird-soundPlayer"), effectPlayer = document.getElementById("effect-soundPlayer");
 var narratorPlayList=["Narrator Sound 3.wav", "Narrator Sound 4.wav", "Narration Sound 5.wav", "Letter 1 narration.wav"], curPlaying = 0;
-
+var rightAnswerList = [], tryingTime = 0;
 
 
 
@@ -80,7 +80,6 @@ function initializeForSequence1() {
 
         setTimeout(function () {
             birdPlayer.volume = 0.4;
-            narratorPlayer.pause();
             //birdPlayer.play();
         }, 19000);
 
@@ -92,7 +91,7 @@ function initializeForSequence1() {
             narratorPlayer.play();
             $('#next-btn').show();
             setTimeout(function () {
-                narratorPlayer.pause();
+
             }, 3000);
 
         }, 50000);
@@ -124,14 +123,44 @@ $('.card').on('click', function (e) {
 $('#value-input').keydown(function (event) {
     if (event.keyCode == 13) {
         var input_value = $(this).val();
+        tryingTime++;
+        if($.inArray(input_value, rightAnswerList) > -1){
+            celebrate();
+        }else{
+            wrongAnswer();
+        }
+
         console.log(input_value);
         $(this).val('');
-        effectPlayer.play();
+
+
+        //effectPlayer.play();
         //$survey.remove();
     }
 });
 
+function celebrate(){
+    effectPlayer.src = "sounds/correct.wav";
+    effectPlayer.load();
+    effectPlayer.play();
+    console.log(tryingTime);
 
+
+    $('.try-number-message').html('<p class="try-number-message">It took you '+ tryingTime +' tries to guess the right answer.</p>');
+
+
+    $('#success-message').modal();
+    setTimeout(function () {
+        $('#success-message').modal('hide');
+    },3000);
+
+    tryingTime = 0;
+}
+function wrongAnswer(){
+    effectPlayer.src = "sounds/error.wav";
+    effectPlayer.load();
+    effectPlayer.play();
+}
 
 function playNextNarrator(){
 
@@ -144,6 +173,20 @@ function playNextNarrator(){
     curPlaying++;
 
 }
+
+
+function playNarrator(link){
+
+    narratorPlayer.src = "sounds/" + link;
+    //Loads the audio song
+    narratorPlayer.load();
+    //Plays the audio song
+    narratorPlayer.play();
+
+    curPlaying++;
+
+}
+
 
 $('.next-sequence').on('click', function(e){
     e.preventDefault();
@@ -172,17 +215,6 @@ $('.next-sequence3').on('click', function(e){
     e.preventDefault();
     $('#help-confirm').modal('hide');
 
-    $('.card').flip();
-
-    $('.rule-box').hide();
-    $('#survey').hide();
-
-    $('.second-page').hide();
-    
-    $('.first-page').show();
-
-    $('.cards-container').show();
-
     initializeForSequence3();
 });
 
@@ -205,7 +237,7 @@ function initializeForSequence2() {
 
                 playNextNarrator();
                 setTimeout(function () {
-                    birdPlayer.pause();
+
                     $('.second-page-content').css('background-image', 'url("images/BACKGROUND BIRDS b&w.jpg")');
 
                     birdPlayer.src = "sounds/ghostown fx.wav";
@@ -228,5 +260,126 @@ function initializeForSequence2() {
 
 function initializeForSequence3() {
 
+    $('.card').flip();
+
+    $('.rule-box').hide();
+    $('#survey').hide();
+
+    $('.second-page').hide();
+
+    $('.first-page').show();
+
+    $('.cards-container').show();
+
+
+    playNarrator('Narration Sound 6.wav');
+
+    setTimeout(function(){
+        playNarrator('narration sound 7.wav');
+        setTimeout(function(){
+            birdPlayer.src = "sounds/hoopoe final.wav";
+            birdPlayer.load();
+            birdPlayer.loop = true;
+            birdPlayer.play();
+
+            rightAnswerList = ['Hoopoe', 'hoopoe', 'the hoopoe'];
+            tryingTime = 0;
+        }, 3000);
+
+
+        setTimeout(function(){
+
+            setTimeout(function(){
+                birdPlayer.pause();
+                playNarrator('Narrator Sound 8.wav');
+                setTimeout(function(){
+                    $('#try-confirm-message').modal();
+                    setTimeout(function(){
+                        $('#try-confirm-message').modal('hide');
+                    },3000);
+                },2000);
+
+
+                setTimeout(function(){
+
+                    playNarrator('narration sound 7.5.wav');
+
+                    setTimeout(function(){
+                        birdPlayer.src = "sounds/wren final.wav";
+                        birdPlayer.load();
+                        birdPlayer.loop = true;
+                        birdPlayer.play();
+
+                        rightAnswerList = ['Wren', 'wren', 'the wren', 'The wren'];
+                        tryingTime = 0;
+                    }, 3500);
+
+
+
+                    setTimeout(function(){
+
+                        setTimeout(function(){
+                            birdPlayer.pause();
+                            playNarrator('Narrator Sound 8.wav');
+                            setTimeout(function(){
+                                setTimeout(function(){
+                                    $('#try-confirm-message').modal('hide');
+                                },3000);
+                            },2000);
+                        }, 2000);
+
+
+                        setTimeout(function(){
+                            playNarrator('narration sound 7.5.wav');
+                            setTimeout(function(){
+                                birdPlayer.src = "sounds/jay final.wav";
+                                birdPlayer.load();
+                                birdPlayer.loop = true;
+                                birdPlayer.play();
+
+                                rightAnswerList = ['Jay', 'jay', 'the jay', 'The jay'];
+                                tryingTime = 0;
+                            }, 3500);
+
+
+
+                            setTimeout(function(){
+                                setTimeout(function(){
+                                    birdPlayer.pause();
+                                    playNarrator('Narrator Sound 8.wav');
+                                    setTimeout(function(){
+                                        $('#try-confirm-message').modal();
+                                        setTimeout(function(){
+                                            $('#try-confirm-message').modal('hide');
+                                        },3000);
+                                    },2000);
+                                }, 5000);
+                                setTimeout(function(){
+
+                                    playNarrator('narration sound 7.5.wav');
+                                    setTimeout(function(){
+                                        birdPlayer.src = "sounds/Blackbird final.wav";
+                                        birdPlayer.load();
+                                        birdPlayer.loop = true;
+                                        birdPlayer.play();
+
+                                        rightAnswerList = ['blackbird', 'Blackbird', 'the Blackbird', 'the blackbird'];
+                                        tryingTime = 0;
+                                    }, 3500);
+
+                                }, 10000);
+                            }, 20000);
+
+
+                        }, 10000);
+                    }, 20000);
+
+
+                }, 5000);
+            }, 3000);
+
+        }, 33000);
+
+    }, 11000)
 
 }
