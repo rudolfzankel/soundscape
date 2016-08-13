@@ -61,7 +61,7 @@ body{
 
 .second-page .background{
     background-repeat: no-repeat;
-    background-image: url("../images/BACKGROUND BIRDS.JPG");
+    /*background-image: url("../images/BACKGROUND BIRDS.JPG");*/
     background-size: contain;
     height: 100%;
     position: absolute;
@@ -379,7 +379,22 @@ body{
     position: absolute;
     bottom: 0;
 }
-
+#survey0{
+    position: absolute;
+    bottom: 0;
+}
+#survey1{
+    position: absolute;
+    bottom: 0;
+}
+#survey2{
+    position: absolute;
+    bottom: 0;
+}
+#survey3{
+    position: absolute;
+    bottom: 0;
+}
 
 #preliminary-survey{
     position: absolute;

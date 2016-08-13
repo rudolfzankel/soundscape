@@ -55,7 +55,7 @@ var surveyVar = {	title: 'Survey',
 
 var narratorPlayer = document.getElementById("narrator-soundPlayer"), birdPlayer = document.getElementById("bird-soundPlayer"), effectPlayer = document.getElementById("effect-soundPlayer");
 var narratorPlayList=["Narrator Sound 3.wav", "Narrator Sound 4.wav", "Narration Sound 5.wav", "Letter 1 narration.wav"], curPlaying = 0;
-var rightAnswerList = [], tryingTime = 0;
+var rightAnswerList = [], tryingTime = 0, firstUserInputing =1, birdIndex = 0;
 
 
 
@@ -109,32 +109,38 @@ $('#preliminary-survey input.submitSurvey').on('click', function (e) {
     e.preventDefault();
     $('#preliminary-survey').hide();
 
-     initializeForSequence1();
+    initializeForSequence1();
 });
 
 /*
-$('.card').on('click', function (e) {
-    e.preventDefault();
-    $(this).toggleClass('flipped');
-});*/
+ $('.card').on('click', function (e) {
+ e.preventDefault();
+ $(this).toggleClass('flipped');
+ });*/
 
 
 
 $('#value-input').keydown(function (event) {
     if (event.keyCode == 13) {
         var input_value = $(this).val();
-        tryingTime++;
-        if($.inArray(input_value, rightAnswerList) > -1){
-            celebrate();
-        }else{
-            wrongAnswer();
-        }
 
+        if(firstUserInputing){
+            effectPlayer.play();
+        }else{
+            tryingTime++;
+            if($.inArray(input_value, rightAnswerList) > -1){
+                birdPlayer.pause();
+                rightAnswerList=[];
+                celebrate();
+            }else{
+                wrongAnswer();
+            }
+        }
         console.log(input_value);
         $(this).val('');
 
 
-        //effectPlayer.play();
+        //
         //$survey.remove();
     }
 });
@@ -152,10 +158,16 @@ function celebrate(){
     $('#success-message').modal();
     setTimeout(function () {
         $('#success-message').modal('hide');
+        playNarrator('Narrator Sound 8.wav');
+        setTimeout(function() {
+            $('#try-confirm-message').modal();
+        }, 1000);
     },3000);
 
-    tryingTime = 0;
 }
+
+
+
 function wrongAnswer(){
     effectPlayer.src = "sounds/error.wav";
     effectPlayer.load();
@@ -214,7 +226,7 @@ $('.open-letter').on('click', function(e){
 $('.next-sequence3').on('click', function(e){
     e.preventDefault();
     $('#help-confirm').modal('hide');
-
+    firstUserInputing = 0;
     initializeForSequence3();
 });
 
@@ -222,15 +234,14 @@ $('.next-sequence3').on('click', function(e){
 function initializeForSequence2() {
 
     playNextNarrator();
-    $('.next-sequence').hide();
-    setTimeout(function(){
-        $('.first-page').hide();
-        $('.second-page').show();
-    },2000);
+    // setTimeout(function(){
+    //     $('.first-page').hide();
+    //     $('.second-page').show();
+    // },2000);
     setTimeout(function () {
         //$('.second-page-content').css('background-image', 'url("images/BACKGROUND BIRDS.JPG")');
-        setTimeout(function () {
-            
+        // setTimeout(function () {
+
             playNextNarrator();
 
             setTimeout(function () {
@@ -238,7 +249,12 @@ function initializeForSequence2() {
                 playNextNarrator();
                 setTimeout(function () {
 
-                    $('.second-page-content').css('background-image', 'url("images/BACKGROUND BIRDS b&w.jpg")');
+                    // $('.second-page-content').css('background-image', 'url("images/BACKGROUND BIRDS b&w.jpg")');
+                    $('.first-page').hide();
+                    $('.next-sequence').hide();
+                    $('.second-page').show();
+
+                    // $('.second-page').css('background-color', '#888888');
 
                     birdPlayer.src = "sounds/ghostown fx.wav";
                     birdPlayer.load();
@@ -247,12 +263,12 @@ function initializeForSequence2() {
 
                     setTimeout(function(){
                         $('#letter-confirm').modal();
-                    }, 16000)
-                },4000);
+                    }, 12000)
+                },1000);
             },4000);
-        },1000);
+        // },1000);
 
-    }, 3000);
+    }, 4000);
 
 }
 
@@ -284,103 +300,105 @@ function initializeForSequence3() {
 
             rightAnswerList = ['Hoopoe', 'hoopoe', 'the hoopoe'];
             tryingTime = 0;
+
+            setTimeout(function () {
+                var surveyForm = $('#survey0');
+                surveyForm.survey({
+                    survey: surveyVar
+                });
+            }, 10000);
+
         }, 3000);
-
-
-        setTimeout(function(){
-
-            setTimeout(function(){
-                birdPlayer.pause();
-                playNarrator('Narrator Sound 8.wav');
-                setTimeout(function(){
-                    $('#try-confirm-message').modal();
-                    setTimeout(function(){
-                        $('#try-confirm-message').modal('hide');
-                    },3000);
-                },2000);
-
-
-                setTimeout(function(){
-
-                    playNarrator('narration sound 7.5.wav');
-
-                    setTimeout(function(){
-                        birdPlayer.src = "sounds/wren final.wav";
-                        birdPlayer.load();
-                        birdPlayer.loop = true;
-                        birdPlayer.play();
-
-                        rightAnswerList = ['Wren', 'wren', 'the wren', 'The wren'];
-                        tryingTime = 0;
-                    }, 3500);
-
-
-
-                    setTimeout(function(){
-
-                        setTimeout(function(){
-                            birdPlayer.pause();
-                            playNarrator('Narrator Sound 8.wav');
-                            setTimeout(function(){
-                                $('#try-confirm-message').modal();
-                                setTimeout(function(){
-                                    $('#try-confirm-message').modal('hide');
-                                },3000);
-                            },2000);
-                        }, 2000);
-
-
-                        setTimeout(function(){
-                            playNarrator('narration sound 7.5.wav');
-                            setTimeout(function(){
-                                birdPlayer.src = "sounds/jay final.wav";
-                                birdPlayer.load();
-                                birdPlayer.loop = true;
-                                birdPlayer.play();
-
-                                rightAnswerList = ['Jay', 'jay', 'the jay', 'The jay'];
-                                tryingTime = 0;
-                            }, 3500);
-
-
-
-                            setTimeout(function(){
-                                setTimeout(function(){
-                                    birdPlayer.pause();
-                                    playNarrator('Narrator Sound 8.wav');
-                                    setTimeout(function(){
-                                        $('#try-confirm-message').modal();
-                                        setTimeout(function(){
-                                            $('#try-confirm-message').modal('hide');
-                                        },3000);
-                                    },2000);
-                                }, 5000);
-                                setTimeout(function(){
-
-                                    playNarrator('narration sound 7.5.wav');
-                                    setTimeout(function(){
-                                        birdPlayer.src = "sounds/Blackbird final.wav";
-                                        birdPlayer.load();
-                                        birdPlayer.loop = true;
-                                        birdPlayer.play();
-
-                                        rightAnswerList = ['blackbird', 'Blackbird', 'the Blackbird', 'the blackbird'];
-                                        tryingTime = 0;
-                                    }, 3500);
-
-                                }, 10000);
-                            }, 25000);
-
-
-                        }, 10000);
-                    }, 25000);
-
-
-                }, 5000);
-            }, 3000);
-
-        }, 33000);
-
     }, 11000)
+}
+
+$('.next-bird').on('click', function(e){
+    e.preventDefault();
+    birdIndex++;
+    tryingTime = 0;
+
+    nextBird(birdIndex);
+});
+
+function nextBird(id){
+    var surveyForm = $('#survey'+id);
+    $('#survey'+(id-1)).hide();
+    if(id == 1){
+            setTimeout(function() {
+                playNarrator('narration sound 7.5.wav');
+
+                setTimeout(function () {
+                    birdPlayer.src = "sounds/wren final.wav";
+                    birdPlayer.load();
+                    birdPlayer.loop = true;
+                    birdPlayer.play();
+
+                    rightAnswerList = ['Wren', 'wren', 'the wren', 'The wren'];
+                    tryingTime = 0;
+
+                    $('#survey').show();
+                    $('#survey').html('');
+
+                    setTimeout(function () {
+                        surveyForm.survey({
+                            survey: surveyVar
+                        });
+                    }, 10000);
+
+                }, 3500);
+
+            },500);
+
+    }else if(id==2){
+        setTimeout(function(){
+            playNarrator('narration sound 7.5.wav');
+            setTimeout(function(){
+                birdPlayer.src = "sounds/jay final.wav";
+                birdPlayer.load();
+                birdPlayer.loop = true;
+                birdPlayer.play();
+
+                rightAnswerList = ['Jay', 'jay', 'the jay', 'The jay'];
+                tryingTime = 0;
+
+                $('#survey').show();
+                $('#survey').html('');
+
+                setTimeout(function () {
+                    surveyForm.survey({
+                        survey: surveyVar
+                    });
+                }, 10000);
+
+
+            }, 3500);
+        }, 500);
+
+    }else if(id==3){
+        setTimeout(function(){
+            playNarrator('narration sound 7.5.wav');
+            setTimeout(function(){
+                birdPlayer.src = "sounds/Blackbird final.wav";
+                birdPlayer.load();
+                birdPlayer.loop = true;
+                birdPlayer.play();
+
+                rightAnswerList = ['blackbird', 'Blackbird', 'the Blackbird', 'the blackbird'];
+                tryingTime = 0;
+
+                $('#survey').show();
+                $('#survey').html('');
+
+                setTimeout(function () {
+                    surveyForm.survey({
+                        survey: surveyVar
+                    });
+                }, 10000);
+
+
+            }, 3500);
+
+        }, 500);
+    }
 
 }
