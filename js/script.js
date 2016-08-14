@@ -306,7 +306,7 @@ letterConfirm1 = 1;
         effectPlayer.play();
         setTimeout(function () {
 
-            $('.letter-container').attr('src', 'images/Letter 2.png');
+            $('.letter-container img').attr('src', 'images/Letter 2.png');
             $('.first-page').hide();
             $('.next-sequence').hide();
             $('.second-page').show();
