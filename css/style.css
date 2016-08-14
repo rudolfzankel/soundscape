@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: 'Comic Book';
-    src: url(../fonts/Comic%20Book%20Bold%20Italic.otf);
+    src: url(../fonts/ComicBookBoldItalic.otf);
 }
 
 @font-face {
@@ -195,7 +195,7 @@ body{
     position: absolute;
     top: 10px;
     left: 20px;
-    padding: 50px 10px 50px 20px;
+    padding: 55px 10px 50px 20px;
     display: none;
 }
 .rule-box p{
@@ -231,6 +231,10 @@ body{
     width: 565px;
     height: 601px;
 }
+#success-message{
+    text-align: center;
+}
+
 
 .second-page-content{
     position: relative;
@@ -374,51 +378,58 @@ body{
     border: none;
     margin-top: -6px;
 }
-
-#survey{
+.survey-forms{
     position: absolute;
+    left: 2px;
     bottom: 0;
 }
-#survey0{
-    position: absolute;
-    bottom: 0;
+.survey-forms .panel{
+    margin-bottom: 1px;
 }
-#survey1{
-    position: absolute;
-    bottom: 0;
-}
-#survey2{
-    position: absolute;
-    bottom: 0;
-}
-#survey3{
-    position: absolute;
-    bottom: 0;
-}
-
 #preliminary-survey{
     position: absolute;
     width: 800px;
-    height: 800px;
+    height: 850px;
     top: 50px;
     left: calc(50% - 400px);
     padding: 15px;
     background-color: #FFFFFF;
     margin: 0 auto;
     z-index: 999999;
+    font-weight: 100;
+    font-size: 13px;
+}
+
+#preliminary-survey legend{
+    padding: 25px 0 15px 55px;
+    font-size: 25px;
 }
 
 #preliminary-survey .submitSurvey{
     float: right;
-    margin-right: 100px;
+    margin-right: 150px;
+    margin-top: 30px;
+}
+#preliminary-survey .form-horizontal .form-group{
+    padding-left: 70px;
 }
 
 .next-sequence:hover{
     cursor: pointer;
 }
+.top-card-label{
+    width: 100%;
+    text-align: center;
+    top: 124px;
+    position: absolute;
+    font-family: 'Comic Book';
+    font-weight: lighter;
+    font-size: 20px;
+}
 
-
-
+.cards-container-1{
+    display: none;
+}
 
 
 
