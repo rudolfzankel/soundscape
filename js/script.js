@@ -348,7 +348,7 @@ $('.next-sequence3').on('click', function(e){
 
 
 function initializeForSequence2() {
-
+    firstUserInputing = 0;
     playNextNarrator();
     // setTimeout(function(){
     //     $('.first-page').hide();
@@ -359,12 +359,12 @@ function initializeForSequence2() {
         // setTimeout(function () {
 
             playNextNarrator();
+
             setTimeout(function () {
-                $('.first-page').hide();
-                $('.next-sequence').hide();
-                $('.second-page').show();
-            },2000);
-            setTimeout(function () {
+
+                    $('.first-page').hide();
+                    $('.next-sequence').hide();
+                    $('.second-page').show();
 
                 playNextNarrator();
                 setTimeout(function () {
@@ -380,8 +380,8 @@ function initializeForSequence2() {
 
                     setTimeout(function(){
                         $('#letter-confirm').modal({backdrop: 'static', keyboard: false});
-                    }, 5000)
-                },4000);
+                    }, 4000)
+                },3000);
             },3500);
         // },1000);
 
@@ -519,6 +519,27 @@ function nextBird(id){
 
                 playNarrator('narration sound 7.5.wav');
                 setTimeout(function () {
+                    birdPlayer.src = "sounds/greenfinch final.wav";
+                    birdPlayer.load();
+                    birdPlayer.loop = true;
+                    birdPlayer.play();
+
+                    rightAnswerList = ['greenfinch', 'Greenfinch', 'the Greenfinch', 'the greenfinch'];
+                    tryingTime = 0;
+
+                    setTimeout(function () {
+                        $('.survey-form').survey({
+                            survey: surveyVar
+                        });
+                    }, 15500);
+
+                }, 3500);
+
+
+                break;
+            case 5:
+                playNarrator('narration sound 7.5.wav');
+                setTimeout(function () {
                     birdPlayer.src = "sounds/cuckoo final.wav";
                     birdPlayer.load();
                     birdPlayer.loop = true;
@@ -537,49 +558,7 @@ function nextBird(id){
 
 
                 break;
-            case 5:
-
-                playNarrator('narration sound 7.5.wav');
-                setTimeout(function () {
-                    birdPlayer.src = "sounds/greenfinch final.wav";
-                    birdPlayer.load();
-                    birdPlayer.loop = true;
-                    birdPlayer.play();
-
-                    rightAnswerList = ['greenfinch', 'Greenfinch', 'the Greenfinch', 'the greenfinch'];
-                    tryingTime = 0;
-
-                    setTimeout(function () {
-                        $('.survey-form').survey({
-                            survey: surveyVar
-                        });
-                    }, 15500);
-
-                }, 3500);
-
-                break;
             case 6:
-
-                playNarrator('narration sound 7.5.wav');
-                setTimeout(function () {
-                    birdPlayer.src = "sounds/tawny owl final.wav";
-                    birdPlayer.load();
-                    birdPlayer.loop = true;
-                    birdPlayer.play();
-
-                    rightAnswerList = ['tawny owl', 'Tawny owl', 'the Tawny owl', 'the tawny owl'];
-                    tryingTime = 0;
-
-                    setTimeout(function () {
-                        $('.survey-form').survey({
-                            survey: surveyVar
-                        });
-                    }, 15500);
-
-                }, 3500);
-
-                break;
-            case 7:
 
                 playNarrator('narration sound 7.5.wav');
                 setTimeout(function () {
@@ -599,6 +578,27 @@ function nextBird(id){
 
                 }, 3500);
 
+                break;
+            case 7:
+
+
+                playNarrator('narration sound 7.5.wav');
+                setTimeout(function () {
+                    birdPlayer.src = "sounds/tawny owl final.wav";
+                    birdPlayer.load();
+                    birdPlayer.loop = true;
+                    birdPlayer.play();
+
+                    rightAnswerList = ['tawny owl', 'Tawny owl', 'the Tawny owl', 'the tawny owl'];
+                    tryingTime = 0;
+
+                    setTimeout(function () {
+                        $('.survey-form').survey({
+                            survey: surveyVar
+                        });
+                    }, 15500);
+
+                }, 3500);
                 break;
             default:
                 nextBird(0);
