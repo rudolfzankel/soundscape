@@ -136,7 +136,7 @@ body{
 #value-input-container{
     width: 160px;
     position: absolute;
-    top: 60%;
+    top: 58%;
     left: calc(50% - 80px);
     outline: none;
     font-size: 18px;
@@ -285,19 +285,19 @@ body{
     width: 150px;
 }
 .bird1{
-    left: 20%;
+    left: calc(50% - 470px);
     bottom: 0;
 }
 .bird2{
-    left: 35%;
+    left: calc(50% - 225px);
     bottom: 0;
 }
 .bird3{
-    left: 50%;
+    left: calc(50% + 25px);
     bottom: 0;
 }
 .bird4{
-    left: 65%;
+    left: calc(50% + 275px);
     bottom: 0;
 }
 
