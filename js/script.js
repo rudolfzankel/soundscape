@@ -106,7 +106,7 @@ var surveyVar1 = {	title: 'survey',
 
 var narratorPlayer = document.getElementById("narrator-soundPlayer"), birdPlayer = document.getElementById("bird-soundPlayer"), effectPlayer = document.getElementById("effect-soundPlayer");
 var narratorPlayList=["Narrator Sound 3.wav", "Narrator Sound 4.wav", "Narration Sound 5.wav", "Letter 1 narration.wav"], curPlaying = 0;
-var rightAnswerList = [], tryingTime = 0, firstUserInputing =0, birdIndex = 0, letterConfirm1=0, letterConfirm2=0, letterConfirm3=0;
+var rightAnswerList = [], tryingTime = 0, firstUserInputing =0, birdIndex = 0, letterConfirm1=0, surveyTimer;
 
 
 
@@ -177,6 +177,7 @@ $('#value-input').keydown(function (event) {
         var input_value = $(this).val();
 
         if(firstUserInputing){
+            effectPlayer.pause();
             effectPlayer.play();
         }else{
             tryingTime++;
@@ -184,13 +185,9 @@ $('#value-input').keydown(function (event) {
                 birdPlayer.pause();
                 rightAnswerList=[];
 
-
-                // if(birdIndex == 0){
-                    $('#survey').hide();
-                    $('#survey').html('');
-                // }else
-                //     $('#survey'+(birdIndex-1)).hide();
-
+                $('#survey').hide();
+                $('#survey').html('');
+                clearTimeout(surveyTimer);
 
                 celebrate();
             }else{
@@ -440,7 +437,7 @@ function nextBird(id){
                         rightAnswerList = ['Hoopoe', 'hoopoe', 'the hoopoe'];
                         tryingTime = 0;
 
-                        setTimeout(function () {
+                        surveyTimer = setTimeout(function () {
                             $('.survey-form').survey({
                                 survey: surveyVar
                             });
@@ -463,7 +460,7 @@ function nextBird(id){
                     rightAnswerList = ['Wren', 'wren', 'the wren', 'The wren'];
                     tryingTime = 0;
 
-                    setTimeout(function () {
+                    surveyTimer = setTimeout(function () {
                         $('.survey-form').survey({
                             survey: surveyVar
                         });
@@ -485,7 +482,7 @@ function nextBird(id){
                     rightAnswerList = ['Jay', 'jay', 'the jay', 'The jay'];
                     tryingTime = 0;
 
-                    setTimeout(function () {
+                    surveyTimer = setTimeout(function () {
                         $('.survey-form').survey({
                             survey: surveyVar
                         });
@@ -506,7 +503,7 @@ function nextBird(id){
                     rightAnswerList = ['blackbird', 'Blackbird', 'the Blackbird', 'the blackbird'];
                     tryingTime = 0;
 
-                    setTimeout(function () {
+                    surveyTimer = setTimeout(function () {
                         $('.survey-form').survey({
                             survey: surveyVar
                         });
@@ -527,7 +524,7 @@ function nextBird(id){
                     rightAnswerList = ['greenfinch', 'Greenfinch', 'the Greenfinch', 'the greenfinch'];
                     tryingTime = 0;
 
-                    setTimeout(function () {
+                    surveyTimer = setTimeout(function () {
                         $('.survey-form').survey({
                             survey: surveyVar
                         });
@@ -548,7 +545,7 @@ function nextBird(id){
                     rightAnswerList = ['cuckoo', 'Cuckoo', 'the Cuckoo', 'the cuckoo'];
                     tryingTime = 0;
 
-                    setTimeout(function () {
+                    surveyTimer = setTimeout(function () {
                         $('.survey-form').survey({
                             survey: surveyVar
                         });
@@ -570,7 +567,7 @@ function nextBird(id){
                     rightAnswerList = ['chukar partridge', 'Chukar partridge', 'Chukar Partridge', 'the chukar partridge', 'the Chukar partridge', 'the Chukar Partridge'];
                     tryingTime = 0;
 
-                    setTimeout(function () {
+                    surveyTimer = setTimeout(function () {
                         $('.survey-form').survey({
                             survey: surveyVar
                         });
@@ -592,7 +589,7 @@ function nextBird(id){
                     rightAnswerList = ['tawny owl', 'Tawny owl', 'the Tawny owl', 'the tawny owl'];
                     tryingTime = 0;
 
-                    setTimeout(function () {
+                    surveyTimer = setTimeout(function () {
                         $('.survey-form').survey({
                             survey: surveyVar
                         });

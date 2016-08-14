@@ -231,6 +231,9 @@ body{
     width: 565px;
     height: 601px;
 }
+.letter-container img{
+    width: 100%;
+}
 #success-message{
     text-align: center;
 }
