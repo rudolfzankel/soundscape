@@ -63,6 +63,7 @@ body{
     background-repeat: no-repeat;
     /*background-image: url("../images/BACKGROUND BIRDS.JPG");*/
     background-size: contain;
+    width: 100%;
     height: 100%;
     position: absolute;
     left: 50%;
@@ -423,7 +424,7 @@ body{
 .top-card-label{
     width: 100%;
     text-align: center;
-    top: 124px;
+    bottom: 300px;
     position: absolute;
     font-family: 'Comic Book';
     font-weight: lighter;
@@ -433,7 +434,21 @@ body{
 .cards-container-1{
     display: none;
 }
-
+.acknowledgement-container{
+    position: absolute;
+    right: 10px;
+    top: calc(50% - 185px);
+    display: none;
+    padding: 35px 30px;
+    border-radius: 10px;
+    font-family: 'Comic Book';
+    font-size: 17px;
+    font-weight: 100;
+    text-align: center;
+    width: 342px;
+    height: 353px;
+    background: #f5f5f5;
+}
 
 
 

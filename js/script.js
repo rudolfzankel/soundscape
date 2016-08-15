@@ -161,7 +161,7 @@ $('#preliminary-survey input.submitSurvey').on('click', function (e) {
     e.preventDefault();
     $('#preliminary-survey').hide();
 
-    initializeForSequence1();
+    initializeForSequence3();
 });
 
 /*
@@ -217,38 +217,47 @@ function celebrate(){
         $('.try-number-message').html('<p class="try-number-message">It took you '+ tryingTime +' tries to guess the right answer.</p>');
 
 
-    $('#success-message').modal();
-    setTimeout(function () {
-        $('#success-message').modal('hide');
-        if(birdIndex == 7){
+    if(birdIndex == 7){
+        $('#success-message .celebrate-message').html('Good job! You have matched all bird sounds!');
+        $('#success-message').modal();
+
+        setTimeout(function () {
+            $('#success-message').modal('hide');
             playNarrator('Narrator Sound 10.wav');
-            setTimeout(function() {
+            setTimeout(function () {
                 birdPlayer.src = "sounds/allbirds final.mp3";
                 birdPlayer.load();
                 birdPlayer.loop = true;
                 birdPlayer.play();
-                setTimeout(function() {
+                setTimeout(function () {
                     $('#letter-confirm').modal({backdrop: 'static', keyboard: false});
-                }, 9000);
-            }, 500);
-        }else if(birdIndex == 3){
-            $('.cards-container-0').hide();
-            $('.cards-container-1').show();
-            playNarrator('Narrator Sound 9.wav');
-            setTimeout(function() {
+                }, 11000);
+            }, 200);
+        },5000);
+    }else{
+        $('#success-message').modal();
+        setTimeout(function () {
+            $('#success-message').modal('hide');
+            if(birdIndex == 3){
+                $('.cards-container-0').hide();
+                $('.cards-container-1').show();
+                playNarrator('Narrator Sound 9.wav');
+                setTimeout(function() {
+                    playNarrator('Narrator Sound 8.wav');
+                    setTimeout(function() {
+                        $('#try-confirm-message').modal({backdrop: 'static', keyboard: false});
+                    }, 1000);
+                }, 7000);
+            }else{
                 playNarrator('Narrator Sound 8.wav');
                 setTimeout(function() {
                     $('#try-confirm-message').modal({backdrop: 'static', keyboard: false});
                 }, 1000);
-            }, 7000);
-        }else{
-            playNarrator('Narrator Sound 8.wav');
-            setTimeout(function() {
-                $('#try-confirm-message').modal({backdrop: 'static', keyboard: false});
-            }, 1000);
-        }
+            }
 
-    },5000);
+        },5000);
+    }
+
 
 }
 
@@ -307,17 +316,28 @@ letterConfirm1 = 1;
             $('.letter-container img').attr('src', 'images/Letter 2.png');
             $('.first-page').hide();
             $('.next-sequence').hide();
+            $('.second-page').css('background-color', '#FBCCBA');
             $('.second-page').show();
+
             $('.letter-container').show();
 
             playNarrator('Letter 2 narration.wav');
 
+            setTimeout(function(){
+                $('.acknowledgement-container').show("slide", { direction: "right" }, 2000);
+            },15000);
+
         },500);
     }else{
+
+
+
         effectPlayer.src = "sounds/letter fx.wav";
         effectPlayer.load();
         effectPlayer.play();
+
         setTimeout(function () {
+            $('.second-page').css('background-color', '#FBCCBA');
             playNextNarrator();
             $('.letter-container').show();
             setTimeout(function () {
@@ -372,6 +392,7 @@ function initializeForSequence2() {
                     setTimeout(function(){
                         $('.first-page').hide();
                         $('.next-sequence').hide();
+                        $('.second-page').css('background-color', '#CBBCAA');
                         $('.second-page').show();
                     },100);
 
@@ -406,7 +427,7 @@ function initializeForSequence3() {
 
     $('.cards-container-0').show();
 
-    nextBird(0);
+    nextBird(7);
 }
 
 $('.next-bird').on('click', function(e){
@@ -433,6 +454,7 @@ function nextBird(id){
 
                     setTimeout(function () {
                         $('.rule-box').html('<p>Which one of the birds is making this sound? Make sure to use the rhyme on the back of the cards as clues. Click on the cards to flip them around.</p>');
+                        $('.first-page').show();
                         $('.rule-box').show();
                     },8000);
 
@@ -449,7 +471,7 @@ function nextBird(id){
                             $('.survey-form').survey({
                                 survey: surveyVar
                             });
-                        }, 32000);
+                        }, 27000);
 
                     }, 3000);
                 }, 10000);
@@ -585,7 +607,7 @@ function nextBird(id){
 
                 break;
             case 7:
-
+birdIndex = 7;
                 playNarrator('narration sound 7.5.wav');
                 setTimeout(function () {
                     birdPlayer.src = "sounds/greenfinch final.wav";
