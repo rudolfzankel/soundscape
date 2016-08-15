@@ -161,7 +161,7 @@ $('#preliminary-survey input.submitSurvey').on('click', function (e) {
     e.preventDefault();
     $('#preliminary-survey').hide();
 
-    initializeForSequence3();
+    initializeForSequence1();
 });
 
 /*
