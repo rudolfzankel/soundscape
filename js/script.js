@@ -161,7 +161,7 @@ $('#preliminary-survey input.submitSurvey').on('click', function (e) {
     e.preventDefault();
     $('#preliminary-survey').hide();
 
-    initializeForSequence1();
+    initializeForSequence3();
 });
 
 /*
@@ -511,7 +511,7 @@ function nextBird(id){
                         }, 27000);
 
                     }, 3000);
-                }, 1000);
+                }, 10500);
 
                 break;
             case 1:

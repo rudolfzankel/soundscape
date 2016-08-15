@@ -164,7 +164,7 @@ body{
     width: 120px;
     height: 32px;
     position: absolute;
-    top: 54.5%;
+    top: calc(58% + 110px);
     left: calc(50% - 60px);
     display: none;
 }
