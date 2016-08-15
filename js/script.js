@@ -442,7 +442,7 @@ $('.next-bird').on('click', function(e){
 });
 
 $('.backtohomepage').on('click', function(e){
-    e.preventDefault();
+    /*e.preventDefault();
 
     narratorPlayer.src='sounds/narration%201.wav';
     birdPlayer.src='sounds/allbirds%20final.mp3';
@@ -465,7 +465,7 @@ console.log('1');
     $('.button-end-container').hide();
     $('.acknowledgement-container').css('right', '-330px');
 
-    initializeForSequence1();
+    initializeForSequence1();*/
 
 });
 $('.backtomatching').on('click', function(e){
