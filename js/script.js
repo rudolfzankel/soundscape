@@ -178,6 +178,7 @@ $('#value-input').keydown(function (event) {
 
         if(firstUserInputing){
             effectPlayer.pause();
+            effectPlayer.load();
             effectPlayer.play();
         }else{
             tryingTime++;
@@ -295,7 +296,7 @@ $('.open-letter').on('click', function(e){
     e.preventDefault();
 
 letterConfirm1 = 1;
-    birdPlayer.pause();
+
     $('#letter-confirm').modal('hide');
     if(birdIndex == 7){
         effectPlayer.src = "sounds/letter fx.wav";
@@ -339,6 +340,7 @@ $("#letter-confirm").on("hidden.bs.modal", function () {
 
 $('.next-sequence3').on('click', function(e){
     e.preventDefault();
+    birdPlayer.pause();
     $('#help-confirm').modal('hide');
     initializeForSequence3();
 });
@@ -359,9 +361,7 @@ function initializeForSequence2() {
 
             setTimeout(function () {
 
-                    $('.first-page').hide();
-                    $('.next-sequence').hide();
-                    $('.second-page').show();
+
 
                 playNextNarrator();
                 setTimeout(function () {
@@ -369,6 +369,11 @@ function initializeForSequence2() {
                     // $('.second-page-content').css('background-image', 'url("images/BACKGROUND BIRDS b&w.jpg")');
 
                     // $('.second-page').css('background-color', '#888888');
+                    setTimeout(function(){
+                        $('.first-page').hide();
+                        $('.next-sequence').hide();
+                        $('.second-page').show();
+                    },100);
 
                     birdPlayer.src = "sounds/ghostown fx.wav";
                     birdPlayer.load();
@@ -377,8 +382,8 @@ function initializeForSequence2() {
 
                     setTimeout(function(){
                         $('#letter-confirm').modal({backdrop: 'static', keyboard: false});
-                    }, 4000)
-                },3000);
+                    }, 9000)
+                },5000);
             },3500);
         // },1000);
 
@@ -400,9 +405,6 @@ function initializeForSequence3() {
     $('.first-page').show();
 
     $('.cards-container-0').show();
-
-    $('.rule-box').html('<p>Which one of the birds is making this sound? Make sure to use the rhyme on the back of the cards as clues. Click on the cards to flip them around.</p>');
-    $('.rule-box').show();
 
     nextBird(0);
 }
@@ -428,6 +430,12 @@ function nextBird(id){
 
                 setTimeout(function () {
                     playNarrator('narration sound 7.wav');
+
+                    setTimeout(function () {
+                        $('.rule-box').html('<p>Which one of the birds is making this sound? Make sure to use the rhyme on the back of the cards as clues. Click on the cards to flip them around.</p>');
+                        $('.rule-box').show();
+                    },8000);
+
                     setTimeout(function () {
                         birdPlayer.src = "sounds/hoopoe final.wav";
                         birdPlayer.load();
@@ -513,28 +521,6 @@ function nextBird(id){
 
                 break;
             case 4:
-
-                playNarrator('narration sound 7.5.wav');
-                setTimeout(function () {
-                    birdPlayer.src = "sounds/greenfinch final.wav";
-                    birdPlayer.load();
-                    birdPlayer.loop = true;
-                    birdPlayer.play();
-
-                    rightAnswerList = ['greenfinch', 'Greenfinch', 'the Greenfinch', 'the greenfinch'];
-                    tryingTime = 0;
-
-                    surveyTimer = setTimeout(function () {
-                        $('.survey-form').survey({
-                            survey: surveyVar
-                        });
-                    }, 15500);
-
-                }, 3500);
-
-
-                break;
-            case 5:
                 playNarrator('narration sound 7.5.wav');
                 setTimeout(function () {
                     birdPlayer.src = "sounds/cuckoo final.wav";
@@ -553,6 +539,28 @@ function nextBird(id){
 
                 }, 3500);
 
+
+
+                break;
+            case 5:
+
+                playNarrator('narration sound 7.5.wav');
+                setTimeout(function () {
+                    birdPlayer.src = "sounds/tawny owl final.wav";
+                    birdPlayer.load();
+                    birdPlayer.loop = true;
+                    birdPlayer.play();
+
+                    rightAnswerList = ['tawny owl', 'Tawny owl', 'the Tawny owl', 'the tawny owl'];
+                    tryingTime = 0;
+
+                    surveyTimer = setTimeout(function () {
+                        $('.survey-form').survey({
+                            survey: surveyVar
+                        });
+                    }, 15500);
+
+                }, 3500);
 
                 break;
             case 6:
@@ -578,15 +586,14 @@ function nextBird(id){
                 break;
             case 7:
 
-
                 playNarrator('narration sound 7.5.wav');
                 setTimeout(function () {
-                    birdPlayer.src = "sounds/tawny owl final.wav";
+                    birdPlayer.src = "sounds/greenfinch final.wav";
                     birdPlayer.load();
                     birdPlayer.loop = true;
                     birdPlayer.play();
 
-                    rightAnswerList = ['tawny owl', 'Tawny owl', 'the Tawny owl', 'the tawny owl'];
+                    rightAnswerList = ['greenfinch', 'Greenfinch', 'the Greenfinch', 'the greenfinch'];
                     tryingTime = 0;
 
                     surveyTimer = setTimeout(function () {
@@ -596,6 +603,8 @@ function nextBird(id){
                     }, 15500);
 
                 }, 3500);
+
+
                 break;
             default:
                 nextBird(0);
