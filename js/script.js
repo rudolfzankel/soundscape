@@ -472,6 +472,7 @@ $('.backtomatching').on('click', function(e){
     e.preventDefault();
 
     $('.button-end-container').hide();
+    $('.cards-container-1').hide();
     $('.acknowledgement-container').css('right', '-330px');
     initializeForSequence3();
 });
