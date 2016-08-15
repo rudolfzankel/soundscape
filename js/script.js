@@ -149,7 +149,7 @@ $('#preliminary-survey input.submitSurvey').on('click', function (e) {
     e.preventDefault();
     $('#preliminary-survey').hide();
 
-    initializeForSequence3();
+    initializeForSequence1();
 });
 
 
@@ -463,7 +463,7 @@ function initializeForSequence3() {
 
     $('.cards-container-0').show();
 
-    nextBird(7);
+    nextBird(0);
 }
 
 $('.next-bird').on('click', function(e){
