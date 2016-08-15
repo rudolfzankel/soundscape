@@ -361,7 +361,7 @@ letterConfirm1 = 1;
             },12000);
             setTimeout(function(){
                 $('.acknowledgement-container').animate({right: "10px"},1000);
-            },14000);
+            },12000);
 
         },500);
     }else{
@@ -475,8 +475,8 @@ $('.next-bird').on('click', function(e){
 
 });
 
-$('.backtohomepage').on('click', function(e){
-    /*e.preventDefault();
+/*$('.backtohomepage').on('click', function(e){
+    e.preventDefault();
 
     narratorPlayer.src='sounds/narration%201.wav';
     birdPlayer.src='sounds/allbirds%20final.mp3';
@@ -499,15 +499,19 @@ console.log('1');
     $('.button-end-container').hide();
     $('.acknowledgement-container').css('right', '-330px');
 
-    initializeForSequence1();*/
+    initializeForSequence1();
 
-});
+});*/
 $('.backtomatching').on('click', function(e){
     e.preventDefault();
-
+    curPlaying = 0;
+    rightAnswerList = []; tryingTime = 0; firstUserInputing =0; birdIndex = 0; letterConfirm1=0;
     $('.button-end-container').hide();
     $('.cards-container-1').hide();
     $('.acknowledgement-container').css('right', '-330px');
+    birdPlayer.pause();
+    effectPlayer.pause();
+
     initializeForSequence3();
 });
 
