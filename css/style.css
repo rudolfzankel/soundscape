@@ -393,7 +393,7 @@ body{
 #preliminary-survey{
     position: absolute;
     width: 800px;
-    height: 850px;
+    /*height: 850px;*/
     top: 50px;
     left: calc(50% - 400px);
     padding: 15px;
