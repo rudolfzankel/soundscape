@@ -474,7 +474,7 @@ function nextBird(id){
                         }, 27000);
 
                     }, 3000);
-                }, 10000);
+                }, 9000);
 
                 break;
             case 1:
