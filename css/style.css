@@ -435,10 +435,9 @@ body{
     display: none;
 }
 .acknowledgement-container{
-    position: absolute;
-    right: 10px;
+    position: fixed;
+    right: -330px;
     top: calc(50% - 185px);
-    display: none;
     padding: 35px 30px;
     border-radius: 10px;
     font-family: 'Comic Book';
@@ -448,8 +447,23 @@ body{
     width: 327px;
     height: 350px;
     background: #f5f5f5;
+
+}
+.button-end-container .btn{
+    font-size: 16px;
+    padding: 6px 12px;
+    margin-right: 20px;
 }
 
+.button-end-container{
+    font-family: 'IM FELL DW Pica PRO';
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 270px;
+    margin-left: -180px;
+}
 
 
 

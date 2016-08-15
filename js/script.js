@@ -322,10 +322,12 @@ letterConfirm1 = 1;
             $('.letter-container').show();
 
             playNarrator('Letter 2 narration.wav');
-
+            setTimeout(function () {
+                $('.button-end-container').show();
+            },12000);
             setTimeout(function(){
-                $('.acknowledgement-container').show("slide", { direction: "right" }, 2000);
-            },15000);
+                $('.acknowledgement-container').animate({right: "10px"},1000);
+            },14000);
 
         },500);
     }else{
@@ -439,6 +441,41 @@ $('.next-bird').on('click', function(e){
 
 });
 
+$('.backtohomepage').on('click', function(e){
+    e.preventDefault();
+
+    narratorPlayer.src='sounds/narration%201.wav';
+    birdPlayer.src='sounds/allbirds%20final.mp3';
+    effectPlayer.src='sounds/userInput.wav';
+
+    curPlaying = 0;
+    rightAnswerList = []; tryingTime = 0; firstUserInputing =0; birdIndex = 0; letterConfirm1=0;
+
+console.log('1');
+
+    $('.rule-box').hide();
+    $('#survey').hide();
+
+    $('.second-page').hide();
+
+    $('.first-page').show();
+
+    $('.cards-container-0').hide();
+    $('.cards-container-1').hide();
+    $('.button-end-container').hide();
+    $('.acknowledgement-container').css('right', '-330px');
+
+    initializeForSequence1();
+
+});
+$('.backtomatching').on('click', function(e){
+    e.preventDefault();
+
+    $('.button-end-container').hide();
+    $('.acknowledgement-container').css('right', '-330px');
+    initializeForSequence3();
+});
+
 function nextBird(id){
 
     $('#survey').html('<div class="survey-form"></div>');
@@ -474,7 +511,7 @@ function nextBird(id){
                         }, 27000);
 
                     }, 3000);
-                }, 9000);
+                }, 9500);
 
                 break;
             case 1:
