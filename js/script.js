@@ -251,30 +251,39 @@ function celebrate(){
     effectPlayer.play();
 
     narratorPlayer.pause();
+    $('#success-message .celebrate-message').html('Good job! You got a match!');
 
     if(tryingTime == 1)
         $('.try-number-message').html('<p class="try-number-message">It took you 1 try to guess the right answer.</p>');
     else
         $('.try-number-message').html('<p class="try-number-message">It took you '+ tryingTime +' tries to guess the right answer.</p>');
-
+    $('#success-message .try-number-message').show();
 
     if(birdIndex == 7){
-        $('#success-message .celebrate-message').html('Good job! You have matched all bird sounds!');
         $('#success-message').modal();
-
         setTimeout(function () {
             $('#success-message').modal('hide');
-            playNarrator('Narrator Sound 10.wav');
             setTimeout(function () {
-                birdPlayer.src = "sounds/allbirds final.mp3";
-                birdPlayer.load();
-                birdPlayer.loop = true;
-                birdPlayer.play();
+                $('#success-message .celebrate-message').html('Good job! You have matched all bird sounds!');
+                $('#success-message .try-number-message').hide();
+                $('#success-message').modal();
                 setTimeout(function () {
-                    $('#letter-confirm').modal({backdrop: 'static', keyboard: false});
-                }, 11000);
-            }, 200);
-        },7000);
+                    birdPlayer.src = "sounds/allbirds final.mp3";
+                    birdPlayer.load();
+                    birdPlayer.loop = true;
+                    birdPlayer.play();
+                }, 1500);
+
+                setTimeout(function () {
+                    $('#success-message').modal('hide');
+                    playNarrator('Narrator Sound 10.wav');
+                    setTimeout(function () {
+                        $('#letter-confirm').modal({backdrop: 'static', keyboard: false});
+                    }, 10000);
+                }, 3000);
+            },500);
+        },5000);
+
     }else{
         $('#success-message').modal();
         setTimeout(function () {
@@ -482,8 +491,19 @@ $('.next-bird').on('click', function(e){
 
 });
 
-/*$('.backtohomepage').on('click', function(e){
+$('.backtohomepage').on('click', function(e){
     e.preventDefault();
+
+
+    effectPlayer.pause();
+    effectPlayer.src = "sounds/button fx.wav";
+    effectPlayer.load();
+    effectPlayer.play();
+
+    setTimeout(function(){
+        window.location.href = "index.html";
+    },500);
+    /*e.preventDefault();
 
     narratorPlayer.src='sounds/narration%201.wav';
     birdPlayer.src='sounds/allbirds%20final.mp3';
@@ -506,9 +526,11 @@ console.log('1');
     $('.button-end-container').hide();
     $('.acknowledgement-container').css('right', '-330px');
 
-    initializeForSequence1();
+    initializeForSequence1();*/
 
-});*/
+});
+
+
 $('.backtomatching').on('click', function(e){
     e.preventDefault();
     curPlaying = 0;
@@ -516,8 +538,13 @@ $('.backtomatching').on('click', function(e){
     $('.button-end-container').hide();
     $('.cards-container-1').hide();
     $('.acknowledgement-container').css('right', '-330px');
+
     birdPlayer.pause();
+
     effectPlayer.pause();
+    effectPlayer.src = "sounds/button fx.wav";
+    effectPlayer.load();
+    effectPlayer.play();
 
     initializeForSequence3();
 });
