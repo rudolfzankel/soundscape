@@ -347,6 +347,12 @@ function playNarrator(link){
 
 $('.next-sequence').on('click', function(e){
     e.preventDefault();
+
+    effectPlayer.pause();
+    effectPlayer.src = "sounds/button fx.wav";
+    effectPlayer.load();
+    effectPlayer.play();
+
     initializeForSequence2();
 });
 
