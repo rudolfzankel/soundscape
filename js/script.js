@@ -116,9 +116,16 @@ var rightAnswerList = [], tryingTime = 0, firstUserInputing =0, birdIndex = 0, l
 // });
 
 function init(){
+
+    $('#value-input-container').hide();
+
+
     $('#preliminary-survey .form-div2').hide();
     $('#preliminary-survey .form-div4').hide();
     $('#preliminary-survey .form-div6').hide();
+
+
+
 }
 
 $('#preliminary-survey .form-div1 input').click(function () {
@@ -148,7 +155,7 @@ $('#preliminary-survey .form-div5 input').click(function () {
 $('#preliminary-survey input.submitSurvey').on('click', function (e) {
     e.preventDefault();
     $('#preliminary-survey').hide();
-
+    $('#value-input-container').show();
     initializeForSequence1();
 });
 
@@ -267,7 +274,7 @@ function celebrate(){
                     $('#letter-confirm').modal({backdrop: 'static', keyboard: false});
                 }, 11000);
             }, 200);
-        },5000);
+        },7000);
     }else{
         $('#success-message').modal();
         setTimeout(function () {
@@ -373,7 +380,7 @@ letterConfirm1 = 1;
         effectPlayer.play();
 
         setTimeout(function () {
-            $('.second-page').css('background-color', '#FBCCBA');
+            // $('.second-page').css('background-color', '#FBCCBA');
             playNextNarrator();
             $('.letter-container').show();
             setTimeout(function () {
