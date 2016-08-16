@@ -219,6 +219,7 @@ $('#value-input').keydown(function (event) {
 
         if(firstUserInputing){
             effectPlayer.pause();
+            effectPlayer.src = "sounds/userInput.wav";
             effectPlayer.load();
             effectPlayer.play();
         }else{
