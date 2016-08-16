@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container homepage-background">
-
+    <audio src="sounds/button%20fx.wav" id="effect-soundPlayer" preload="auto"></audio>
     <div class="main-content">
         <div class="full-width">
             <img src="images/header-02.png" class="top-title" />
@@ -19,7 +19,7 @@
         <div class="full-width homepage-graphic">
             <img src="images/homepage_graphic.png" class="homepage-graphic-img" />
             <div class="start-btn">
-                <a href="1.html" > <img src="images/start_button.png" /> </a>
+                <a href="1.html" class="start-btn-img"> <img src="images/start_button.png" /> </a>
             </div>
         </div>
         <div class="full-width">
@@ -32,6 +32,23 @@
     </div>
 
 </div>
+<script src="js/jquery-3.0.0.min.js"></script>
+<script>
 
+    $('.start-btn-img').on('click', function(e){
+
+        e.preventDefault();
+
+        effectPlayer = document.getElementById("effect-soundPlayer");
+        effectPlayer.src = "sounds/button fx.wav";
+        effectPlayer.load();
+        effectPlayer.play();
+
+        setTimeout(function(){
+            window.location.href = "1.html";
+        },500);
+    });
+
+</script>
 </body>
 </html>

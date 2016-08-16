@@ -352,8 +352,11 @@ $('.next-sequence').on('click', function(e){
     effectPlayer.src = "sounds/button fx.wav";
     effectPlayer.load();
     effectPlayer.play();
+    
+    setTimeout(function(){
+        initializeForSequence2();
+    },1000);
 
-    initializeForSequence2();
 });
 
 
@@ -536,6 +539,13 @@ console.log('1');
 
 });
 
+
+$('.submitSurvey').on('click', function(e){
+    effectPlayer.pause();
+    effectPlayer.src = "sounds/button fx.wav";
+    effectPlayer.load();
+    effectPlayer.play();
+});
 
 $('.backtomatching').on('click', function(e){
     e.preventDefault();
